@@ -1,0 +1,33 @@
+<!-- <ion-header>
+  <ion-toolbar color="primary">
+    <center>
+      <ion-title style="color:white; font-size: large;">에이스원 공기청정기</ion-title>
+  </center>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content class="background"><br><br><br><br>
+  <div style="display: flex; text-align: center;  justify-content: center;">
+    <img src="assets/img/aceone.png" style="height: 50px; width: 50px; margin-right: 10px;"><b style="font-size: 40px; color: white; ">회원가입</b>
+    </div><br><br>
+  <center>
+    <ion-card style="width: 90%; height: 250px;" color="light"><br>
+      <div style="width: 95%;">
+        <ion-item color="light">
+          <ion-label>Email : </ion-label>
+          <ion-input [(ngModel)]="user.email"></ion-input>
+        </ion-item>
+        <!-- password -->
+        <ion-item color="light">
+        <ion-label>Password : </ion-label>
+          <ion-input type="password" [(ngModel)]="user.password"></ion-input>
+        </ion-item>
+      </div><br>
+
+      <section>
+    <ion-button (click)="createAccount()" class="buttoncolor"  style="width: 48%;">회원가입</ion-button>
+    <ion-button (click)="backlogin()" class="buttoncolor" style="width: 48%;">돌아가기</ion-button>
+  </section>
+    </ion-card>
+  </center>
+</ion-content>

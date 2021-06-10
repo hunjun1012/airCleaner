@@ -1,0 +1,7 @@
+{
+  "name": "airCleaner",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

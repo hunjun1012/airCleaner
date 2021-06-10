@@ -1,0 +1,22 @@
+<!-- <ion-header>
+  <ion-toolbar color="primary">
+    <center>
+    <ion-title style="color:white; font-size: large;">에이스원 공기청정기</ion-title>
+  </center>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content class="background"><br><br><br><br>
+  <div style="display: flex; text-align: center;  justify-content: center;">
+    <img src="assets/img/aceone.png" style="height: 50px; width: 50px; margin-right: 10px;"><b style="font-size: 40px; color: white; ">비밀번호찾기</b>
+    </div><br><br>
+
+  <center>
+    <ion-card style="width: 90%; height: 250px;" color="light"><br><br>
+  <b style="font-size: 17px; color: dark;">Email address: </b>
+  <input style="height: 40px; margin-top: 10px;" type="text" [value]="" (change)="forget($event)"><br><br>
+  <ion-button (click)="forget()" class="buttoncolor" style="width: 90%;">비밀번호 변경 메일 전송</ion-button>
+  <ion-button (click)="login()" class="buttoncolor" style="width: 90%;">돌아가기</ion-button>
+</ion-card>
+</center>
+</ion-content>

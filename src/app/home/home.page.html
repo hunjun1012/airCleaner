@@ -1,0 +1,140 @@
+<!-- <ion-header>
+  <ion-toolbar color="primary">
+    <center>
+    <ion-title style="color:white; font-size: large;">에이스원 공기청정기</ion-title>
+  </center>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content>
+  <br><br><br><br>
+  <div style="display: flex; text-align: center;  justify-content: center;">
+    <img src="assets/img/aceone.png" style="height: 50px; width: 50px; margin-right: 10px;"><b style="font-size: 40px; color: white; ">Aceone</b>
+    </div>
+<!-- Read more information -->
+<center>
+  <button id="information" disabled><b>실내 공기 상태</b></button>
+</center>
+<!-- sensors 정보 테이블 -->
+<!-- dust -->
+<div>
+  <button id="leftbtn" disabled><b>Dust</b></button>
+  <p id="text">{{dust}}%</p>
+</div>
+<hr>
+<!-- gas -->
+<div>
+  <button id="leftbtn" disabled><b>Gas</b></button>
+  <p id="text">{{gas}}%</p>
+</div>
+<hr>
+<!-- voc -->
+<div>
+  <button id="leftbtn" disabled><b>Voc</b></button>
+  <p id="text">{{voc}}%</p>
+</div>
+<hr>
+<div>
+  <button id="leftbtn" disabled><b>온도</b></button>
+  <p id="text">{{temperature}}℃</p>
+</div>
+<hr>
+<div>
+  <button id="leftbtn" disabled><b>습도</b></button>
+  <p id="text">{{humidity}}%</p>
+</div>
+<hr>
+<div>
+  <button id="leftbtn" disabled><b><a style="color: white;" href="https://m.coupang.com/nm/search?component=&q=%EA%B3%B5%EA%B8%B0%EC%B2%AD%EC%A0%95%EA%B8%B0+%ED%95%84%ED%84%B0&channel=user">Filter</a></b></button>
+  <p id="text">{{filter == "0" ? "교체시기" : "정상"}}</p>
+</div>
+<hr><br>
+<center>
+  <button id="information" disabled><b>공기청정기 제어</b></button><br><br>
+<ion-item color="dark" style="width: 80%;  box-shadow: 2px 2px 2px 2px;">
+  <ion-label>Light</ion-label>
+  <ion-select (ionChange)="lightOption($event.detail.value)" value="{{light}}">
+    <ion-select-option value="0">꺼짐</ion-select-option>
+    <ion-select-option value="1">켜짐</ion-select-option>
+  </ion-select>
+</ion-item><br>
+
+<ion-item color="dark" style="width: 80%; box-shadow: 2px 2px 2px 2px;">
+  <ion-label>Power</ion-label>
+  <ion-select (ionChange)="powerOption($event.detail.value)" value="{{power}}">
+    <ion-select-option value="0">꺼짐</ion-select-option>
+    <ion-select-option value="1">켜짐</ion-select-option>
+  </ion-select>
+</ion-item><br>
+
+<ion-item color="dark" style="width: 80%; box-shadow: 2px 2px 2px 2px;">
+  <ion-label>Lock</ion-label>
+  <ion-select (ionChange)="lockOption($event.detail.value)" value="{{lock}}">
+    <ion-select-option value="0">잠김</ion-select-option>
+    <ion-select-option value="1">열림</ion-select-option>
+  </ion-select>
+</ion-item><br>
+
+<ion-item color="dark" style="width: 80%; box-shadow: 2px 2px 2px 2px;">
+  <ion-label>Mode</ion-label>
+  <ion-select (ionChange)="modeOption($event.detail.value)" value="{{mode}}">
+    <ion-select-option value="1">수동모드</ion-select-option>
+    <ion-select-option value="2">자동모드</ion-select-option>
+    <ion-select-option value="3">쾌속모드</ion-select-option>
+    <ion-select-option value="4">수면모드</ion-select-option>
+  </ion-select>
+</ion-item><br>
+
+<ion-item color="dark" style="width: 80%; box-shadow: 2px 2px 2px 2px;">
+  <ion-label>Sound</ion-label>
+  <ion-select (ionChange)="soundOption($event.detail.value)" value="{{sound}}">
+    <ion-select-option value="0">무음모드</ion-select-option>
+    <ion-select-option value="1">소리모드</ion-select-option>
+  </ion-select>
+</ion-item><br>
+
+<ion-item color="dark" style="width: 80%; box-shadow: 2px 2px 2px 2px;">
+  <ion-label>Timer</ion-label>
+  <ion-select (ionChange)="timerOption($event.detail.value)" value="{{timer}}">
+    <ion-select-option value="1">2시간</ion-select-option>
+    <ion-select-option value="2">4시간</ion-select-option>
+    <ion-select-option value="3">8시간</ion-select-option>
+  </ion-select>
+</ion-item><br>
+
+<ion-item color="dark" style="width: 80%; box-shadow: 2px 2px 2px 2px;">
+  <ion-label>Wind</ion-label>
+  <ion-select (ionChange)="windOption($event.detail.value)" value="{{wind}}">
+    <ion-select-option value="1">저속모드</ion-select-option>
+    <ion-select-option value="2">중속모드</ion-select-option>
+    <ion-select-option value="3">고속모드</ion-select-option>
+  </ion-select>
+</ion-item><br>
+</center>
+<!-- controls 정보 테이블 -->
+  <!-- <table>
+    <tr>
+      <td style="border-right:1px solid white; border-bottom: 1px solid white;"><a style="color: white;" href="https://m.coupang.com/nm/search?component=&q=%EA%B3%B5%EA%B8%B0%EC%B2%AD%EC%A0%95%EA%B8%B0+%ED%95%84%ED%84%B0&channel=user">Filter</a><p style="font-size: 30px;">{{filter == "0" ? "교체시기" : "정상"}}</p></td>
+      <td style="border-bottom: 1px solid white;">Light<p style="font-size: 30px;">{{light}}단계</p></td>
+    </tr> 
+    <tr>
+      <td style="border-bottom: 1px solid white; border-right:1px solid white;">Lock<p style="font-size: 30px;">{{lock=="1" ? "잠금":"열림"}}</p></td>
+      <td style="border-bottom: 1px solid white;">Mode <p style="font-size: 30px;">{{mode}}번 모드</p></td>
+    </tr>
+    <tr>
+      <td style="border-bottom: 1px solid white; border-right:1px solid white;">Power<p style="font-size: 30px;">{{power}}단계</p></td>
+      <td style="border-bottom: 1px solid white;">Sound <p style="font-size: 30px;">{{sound=="1" ? "소리모드" : "무음모드"}}</p></td>
+    </tr>
+    <tr>
+      <td style="border-bottom: 1px solid white; border-right:1px solid white;">Timer<p style="font-size: 30px;">{{timer}}시간</p></td>
+      <td style="border-bottom: 1px solid white;">Wind <p style="font-size: 30px;">{{wind}}단계</p></td>
+    </tr>
+  </table> -->
+<!-- <ion-button expand="block" fill="solid" color="primary" class="nomember-btn" (click)="wifi()">돌아가기</ion-button> -->
+<!-- <ion-button expand="block" fill="solid" color="primary" class="nomember-btn" (click)="logout()">로그아웃</ion-button> -->
+  <!-- <ion-select>
+    <ion-select-option value="01">January</ion-select-option>
+    <ion-select-option value="02">February</ion-select-option>
+    <ion-select-option value="03">March</ion-select-option>
+  </ion-select> -->
+</ion-content>
