@@ -1,5 +1,6 @@
 ion-content{
-  --ion-background-color:linear-gradient(-50deg,#2d4297, #456cbe, #4e93b1);
+  // --ion-background-color:linear-gradient(-50deg,#2d4297, #456cbe, #4e93b1);
+  --ion-background-color:grey;
 }
 
 .title{
@@ -13,13 +14,23 @@ ion-content{
   height: 40px; width: 90%; border-radius: 15px 15px 15px 15px; color:white; font-size: medium; background-color: #456cbe; border: 2px solid #2d4297;
 }
 
+#message{
+  height: 40px; width: 90%; border-radius: 30px 30px 30px 30px; color:white; font-size: medium; background-color: #456cbe;
+}
+
 #leftbtn{
   height: 80px; width: 80px; border-radius: 100%; margin-left: 5%; font-size: medium; background-color: #ffffff; background: rgba(255, 255, 255, 0); color: white; border: 1px solid white; float: left;
 }
 
 hr {background: white;}
 
-#text{
+.text{
+  text-align: center;
+  font-size: 50px;
+  color: white;
+}
+
+#filterText{
   text-align: center;
   font-size: 50px;
   color: white;
@@ -57,4 +68,47 @@ table{
 
 td{
   color: white;
+}
+
+.box {
+  width: 150px;
+  height: 150px; 
+  border-radius: 70%;
+  overflow: hidden;
+}
+.profile {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#powerToggle{
+  position: absolute;
+}
+
+#powerToggle {
+  --handle-background-checked: #fff url(../../assets/img/on.png) no-repeat center / contain;
+  --handle-background: #fff url(../../assets/img/off.png) no-repeat center / contain;
+  --background-checked: #6DD66D;
+  --background: #FF8C8C;
+  zoom: 1.2;
+  // width: 110px;
+  // height: 110px;
+  // border-radius: 50%;
+}
+
+.controlText{
+  position:fixed; font-size: 17px; margin-top: 10px; margin-left: 10px;
+}
+
+
+// no scroll
+ion-content {
+  // overwrite inline styles
+  --offset-bottom: auto!important;
+  --overflow: hidden;
+  overflow: auto;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }

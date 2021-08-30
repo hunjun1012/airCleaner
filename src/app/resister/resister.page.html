@@ -6,28 +6,28 @@
   </ion-toolbar>
 </ion-header> -->
 
-<ion-content class="background"><br><br><br><br>
-  <div style="display: flex; text-align: center;  justify-content: center;">
-    <img src="assets/img/aceone.png" style="height: 50px; width: 50px; margin-right: 10px;"><b style="font-size: 40px; color: white; ">회원가입</b>
-    </div><br><br>
-  <center>
-    <ion-card style="width: 90%; height: 250px;" color="light"><br>
-      <div style="width: 95%;">
-        <ion-item color="light">
-          <ion-label>Email : </ion-label>
-          <ion-input [(ngModel)]="user.email"></ion-input>
-        </ion-item>
-        <!-- password -->
-        <ion-item color="light">
-        <ion-label>Password : </ion-label>
-          <ion-input type="password" [(ngModel)]="user.password"></ion-input>
-        </ion-item>
-      </div><br>
-
-      <section>
-    <ion-button (click)="createAccount()" class="buttoncolor"  style="width: 48%;">회원가입</ion-button>
-    <ion-button (click)="backlogin()" class="buttoncolor" style="width: 48%;">돌아가기</ion-button>
+<ion-content class="background">
+<center>
+  <div style="display: flex; text-align: center;  justify-content: center; margin-top: 228px;">
+  <img src="assets/img/aceone.png" style="height: 100px; width: 88px; margin-right: 10px;">
+  </div><br>
+  <b style="font-size: 28px; color: white;">회원가입</b>
+    <div style="margin-top: 20px;">
+    <div style="background-color: #5794E9; width: 80%; height: 44px; border-radius: 25px 25px 25px 25px;">
+      <ion-input style="color: white;" [(ngModel)]="user.email" placeholder="이메일 아이디 입력"><img src="../../assets/img/email.png" style="width: 20px; height: 20px; margin-left: 20px;"></ion-input>
+    </div>
+    <div style="background-color: #5794E9; width: 80%; height: 44px; border-radius: 25px 25px 25px 25px; margin-top: 10px;">
+      <ion-input style="color: white;" type="password" [(ngModel)]="user.password" placeholder="비밀번호 입력"><img src="../../assets/img/password.png" style="width: 20px; height: 20px; margin-left: 20px;"></ion-input>
+    </div>
+    <div style="background-color: #5794E9; width: 80%; height: 44px; border-radius: 25px 25px 25px 25px; margin-top: 10px;">
+      <ion-input style="color: white;" type="password" [(ngModel)]="password2" placeholder="비밀번호 확인"><img src="../../assets/img/password.png" style="width: 20px; height: 20px; margin-left: 20px;"></ion-input>
+    </div>
+    </div>
+  <section>
+    <ion-button (click)="createAccount()" id="loginbutton" style="width: 80%; height: 40px; margin-top: 10px;" shape="round"><b style="color: #4A7BC1;">회원가입</b></ion-button>
+    <!-- <ion-button (click)="createAccount()" class="buttoncolor"  style="width: 48%;">회원가입</ion-button> -->
+    <ion-button (click)="backlogin()" id="backbutton" style="width: 80%; height: 40px; margin-top: 7px;" shape="round"><b style="color: #FFFFFF;">돌아가기</b></ion-button>
+    <!-- <ion-button (click)="backlogin()" class="buttoncolor" style="width: 48%;">돌아가기</ion-button> -->
   </section>
-    </ion-card>
-  </center>
+</center>
 </ion-content>

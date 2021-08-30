@@ -9,3 +9,13 @@ ion-item {
 .buttoncolor{
     --ion-color-primary: #233f78;
   }
+
+
+  #loginbutton{
+    --ion-color-primary: #FFFFFF;
+  }
+  #backbutton{
+    --ion-color-primary: none;
+    border: 1px solid #FFFFFF;
+    border-radius: 25px 25px 25px 25px;
+  }

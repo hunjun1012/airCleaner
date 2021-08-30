@@ -37,3 +37,8 @@ exports.widgets = functions.https.onRequest(app);
 exports.sensors = functions.https.onRequest(require('./sensors'));
 exports.controls = functions.https.onRequest(require('./controls'));
 exports.status = functions.https.onRequest(require('./status'));
+
+/* exports.scheduledFunction = functions.pubsub.schedule('every 10 seconds').onRun((context) => {
+    console.log('This will be run every 10 seconds');
+    return null;
+}); */

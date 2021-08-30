@@ -1,0 +1,122 @@
+<!-- <span id="offState"> -->
+<!-- <div *ngFor="let userDeviceLists of userSelectDevice | keyvalue">
+  <button id="leftbtn" disabled><b>Dust</b></button>
+  <p class="text">{{userDeviceLists.value.sensors.dust}}µg/m³</p>
+</div>
+  <div *ngFor="let userDeviceLists of userSelectDevice | keyvalue" style="margin-bottom: -50px;">
+  <progress id="airStatus" value="{{userDeviceLists.value.sensors.dust}}" max="100" style="width: 70%; height: 20px; float: right;"></progress>
+  </div>
+  <center>
+  <span id="" style="text-align: center; font-size: 20px; color: white; margin-left: 100px;"><b id="dustStatus">Dust 상태</b></span>
+  </center>
+  <hr>
+<div *ngFor="let userDeviceLists of userSelectDevice | keyvalue">
+  <button id="leftbtn" disabled><b>Gas</b></button>
+  <p class="text">{{userDeviceLists.value.sensors.gas}}ppm</p>
+</div>
+  <div *ngFor="let userDeviceLists of userSelectDevice | keyvalue" style="margin-bottom: -50px;">
+  <progress id="airStatus01" value="{{userDeviceLists.value.sensors.gas}}" max="100" style="width: 70%; height: 20px; float: right;"></progress>
+  </div>
+  <center>
+    <span id="" style="text-align: center; font-size: 20px; color: white; margin-left: 100px;"><b id="gasStatus">Gas 상태</b></span>
+  </center>
+  <hr>
+<div *ngFor="let userDeviceLists of userSelectDevice | keyvalue">
+  <button id="leftbtn" disabled><b>Voc</b></button>
+  <p class="text">{{userDeviceLists.value.sensors.voc}}ppb</p>
+</div>
+  <div *ngFor="let userDeviceLists of userSelectDevice | keyvalue" style="margin-bottom: -50px;">
+  <progress id="airStatus" value="{{userDeviceLists.value.sensors.voc}}" max="100" style="width: 70%; height: 20px; float: right;"></progress>
+  </div>
+  <center>
+    <span id="" style="text-align: center; font-size: 20px; color: white; margin-left: 100px;"><b id="vocStatus">Voc 상태</b></span>
+  </center>
+  <hr>
+  <div *ngFor="let userDeviceLists of userSelectDevice | keyvalue">
+    <button id="leftbtn" disabled><b><a style="color: white;" href="http://iaceone.com/shop/item_detail.php?it_id=1548660423">Filter</a></b></button>
+    <p class="text">{{userDeviceLists.value.controls.filter == "0" ? "정상" : "교체필요"}}</p>
+  </div>
+  <div *ngFor="let userDeviceLists of userSelectDevice | keyvalue" style="margin-bottom: -50px;">
+    <progress id="airStatus" value="{{filterStatus}}" max="100" style="width: 70%; height: 20px; float: right;"></progress>
+    </div>
+    <center>
+    <span id="filterStatus" style="text-align: center; font-size: 20px; color: white; margin-left: 100px;">필터 상태</span>
+    </center>
+    <hr>
+<div *ngFor="let userDeviceLists of userSelectDevice | keyvalue">
+  <button id="leftbtn" disabled><b>온도</b></button>
+  <p class="text">{{userDeviceLists.value.sensors.temperature}}℃</p>
+</div><hr>
+<div *ngFor="let userDeviceLists of userSelectDevice | keyvalue">
+  <button id="leftbtn" disabled><b>습도</b></button>
+  <p class="text">{{userDeviceLists.value.sensors.humidity}}%</p>
+</div>
+</span> -->
+<!-- ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ -->
+<ion-content>
+<center style="background-color: #EAEAEA; height: 100vh; background-position: center; background-repeat: no-repeat; background-size: cover;"><br><br>
+
+  <div>
+    <button id="message" disabled style="margin-top: 10px;"><b>공기청정기 센서</b></button>
+  </div> 
+
+  <ion-item *ngFor="let userDeviceLists of userSelectDevice | keyvalue" style="width: 90%; margin-top: -30px;" color="light" lines="none" (click)="temperatureChart(deviceid)"> 
+    <ion-label><img style="height: 40px; width: 40px;" src="../../assets/img/temperature.png"><b class="sensorsText">온도</b></ion-label>
+    <ion-label><b style="float: right;">{{userDeviceLists.value.sensors.temperature}} ℃</b></ion-label>
+  </ion-item><br>
+  
+  
+  <ion-item *ngFor="let userDeviceLists of userSelectDevice | keyvalue" style="width: 90%;" color="light" lines="none" (click)="humidityChart(deviceid)"> 
+    <ion-label><img style="height: 40px; width: 40px;" src="../../assets/img/humi.png"><b class="sensorsText">습도</b></ion-label>
+    <ion-label><b style="float: right;">{{userDeviceLists.value.sensors.humidity}} %</b></ion-label>
+  </ion-item><br>
+
+
+<ion-item *ngFor="let userDeviceLists of userSelectDevice | keyvalue" style="width: 90%; margin-top: 0px;" color="light" (click)="dustChart(deviceid)"> 
+  <ion-label><img style="height: 40px; width: 40px;" src="../../assets/img/dust.png"><b class="sensorsText">미세먼지</b></ion-label>
+  <ion-label><b style="float: right;">{{userDeviceLists.value.sensors.dust}} µg/m³</b></ion-label>
+</ion-item>
+<ion-item *ngFor="let userDeviceLists of userSelectDevice | keyvalue" style=" width: 90%;" color="light" lines="none">
+  <!-- <progress value="{{userDeviceLists.value.sensors.dust}}" max="100" style="width: 90%; height: 20px;"></progress> -->
+  <ion-progress-bar style="width: 90%; height: 20px;" value="{{userDeviceLists.value.sensors.dust/100}}" [color]="dynamicColorDust"></ion-progress-bar>
+</ion-item><br>
+
+
+<ion-item *ngFor="let userDeviceLists of userSelectDevice | keyvalue" style="width: 90%;" color="light" (click)="gasChart(deviceid)"> 
+  <ion-label><img style="height: 40px; width: 40px;" src="../../assets/img/gas.png"><b class="sensorsText">가스</b></ion-label>
+  <ion-label><b style="float: right;">{{userDeviceLists.value.sensors.gas}} ppm</b></ion-label>
+</ion-item>
+<ion-item *ngFor="let userDeviceLists of userSelectDevice | keyvalue" style=" width: 90%;" color="light" lines="none">
+  <ion-progress-bar style="width: 90%; height: 20px;" value="{{userDeviceLists.value.sensors.gas/100}}" [color]="dynamicColorGas"></ion-progress-bar>
+</ion-item><br>
+
+
+<ion-item *ngFor="let userDeviceLists of userSelectDevice | keyvalue" style="width: 90%;" color="light" (click)="vocChart(deviceid)"> 
+  <ion-label><img style="height: 40px; width: 40px;" src="../../assets/img/voc.png"><b class="sensorsText">Voc</b></ion-label>
+  <ion-label><b style="float: right;">{{userDeviceLists.value.sensors.voc}} ppb</b></ion-label>
+</ion-item>
+<ion-item *ngFor="let userDeviceLists of userSelectDevice | keyvalue" style=" width: 90%;" color="light" lines="none">
+  <ion-progress-bar style="width: 90%; height: 20px;" value="{{userDeviceLists.value.sensors.voc/100}}" [color]="dynamicColorVoc"></ion-progress-bar>
+</ion-item><br>
+
+
+<ion-item *ngFor="let userDeviceLists of userSelectDevice | keyvalue" style="width: 90%;" color="light" (click)="filterChart(deviceid)"> 
+  <ion-label><img style="height: 40px; width: 40px;" src="../../assets/img/mode.png"><b class="sensorsText">필터</b></ion-label>
+  <ion-label><b style="float: right;">{{userDeviceLists.value.controls.filter == "0" ? "정상" : "교체필요"}}</b></ion-label>
+</ion-item>
+<ion-item *ngFor="let userDeviceLists of userSelectDevice | keyvalue" style=" width: 90%;" color="light" lines="none">
+  <!-- <progress value="{{filterStatus}}" max="100" style="width: 90%; height: 20px;"></progress> -->
+  <ion-progress-bar style="width: 90%; height: 20px;" value="{{filterStatus/100}}" [color]="dynamicColorFilter"></ion-progress-bar>
+</ion-item>
+
+<div style="margin-top: 3px;">
+  <ion-button color="light" style="width: 90%; height: 40px;" (click)="filterShop()"><b style="color: dark;">필터 구매하러 가기</b></ion-button>
+</div> 
+
+<!-- <ion-item *ngFor="let userDeviceLists of userSelectDevice | keyvalue" style=" width: 90%;" color="light">
+  <ion-progress-bar style="width: 90%; height: 20px;" value="{{userDeviceLists.value.sensors.voc/100}}" [color]="dynamicColor"></ion-progress-bar>
+</ion-item><br> -->
+</center>
+<!-- <ion-progress-bar value="0.70" [color]="dynamicColor"></ion-progress-bar> -->
+
+</ion-content>

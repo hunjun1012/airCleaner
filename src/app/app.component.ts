@@ -9,6 +9,8 @@ import { Component, OnInit } from '@angular/core';
 import { Platform, ToastController } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { AlertController } from '@ionic/angular';
+
 
 
 const firebaseConfig = {
@@ -35,6 +37,7 @@ export class AppComponent implements OnInit {
     private toastCtrl: ToastController,
       private platform: Platform,
       private splashScreen: SplashScreen,
+      public alertController: AlertController,
       private statusBar: StatusBar) {
       this.initializeApp();
   }
@@ -44,6 +47,38 @@ export class AppComponent implements OnInit {
         this.statusBar.styleDefault();
         this.splashScreen.hide();
         firebase.initializeApp(FIREBASE_CONFIG);
+    });
+  }
+
+  //show 알람창
+  showPrompt() {
+    this.alertController.create({
+      header: 'Prompt Alert',
+      subHeader: 'Enter information requested',
+      message: 'Enter your favorate place',
+      inputs: [
+        {
+          name: 'Place',
+          placeholder: 'Eg.NY',
+          
+        },
+      ],
+      buttons: [
+        {
+          text: 'Cancel',
+          handler: (data: any) => {
+            console.log('Canceled', data);
+          }
+        },
+        {
+          text: 'Done!',
+          handler: (data: any) => {
+            console.log('Saved Information', data);
+          }
+        }
+      ]
+    }).then(res => {
+      res.present();
     });
   }
 

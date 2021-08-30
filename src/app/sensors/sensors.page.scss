@@ -1,0 +1,118 @@
+ion-content{
+    --ion-background-color:grey;
+  }
+  
+  .title{
+    --background: rgb(103, 144, 233);
+  }
+  [text-color="text"] {
+    color: white;
+  }
+  
+  #information{
+    height: 40px; width: 90%; border-radius: 15px 15px 15px 15px; color:white; font-size: medium; background-color: #456cbe; border: 2px solid #2d4297;
+  }
+  
+  #leftbtn{
+    height: 80px; width: 80px; border-radius: 100%; margin-left: 5%; font-size: medium; background-color: #ffffff; background: rgba(255, 255, 255, 0); color: white; border: 1px solid white; float: left;
+  }
+  
+  hr {background: white;}
+  
+  .text{
+    text-align: center;
+    font-size: 50px;
+    color: white;
+  }
+  
+  #filterText{
+    text-align: center;
+    font-size: 50px;
+    color: white;
+  }
+  
+  #pr{
+    height: 50px;
+    width: 150px;
+    float: left;
+    margin-top: 13px;
+    margin-left: 7px;
+  }
+  
+  #pr2{
+    height: 50px;
+    width: 150px;
+    float: left;
+    margin-top: 13px;
+    margin-left: 7px;
+  }
+  
+  div{
+    margin-top: -20px;
+    margin-bottom: 20px;
+    height: 80px;
+  }
+  
+  table{
+    table-layout: fixed;
+    margin-top: -9px;
+    text-align: center;
+    height: 260px;
+    width: 100%;
+  }
+  
+  td{
+    color: white;
+  }
+  
+  .box {
+    width: 150px;
+    height: 150px; 
+    border-radius: 70%;
+    overflow: hidden;
+  }
+  .profile {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  #powerToggle{
+    position: absolute;
+  }
+// 높이
+//   ion-item {
+//     --min-height: 160px;
+// }
+
+.sensorsText{
+  position:fixed; font-size: 17px; margin-top: 10px; margin-left: 10px;
+}
+
+
+// no scroll
+ion-content {
+  --offset-bottom: auto!important;
+  --overflow: hidden;
+  overflow: auto;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+#message{
+  height: 40px; width: 90%; border-radius: 30px 30px 30px 30px; color:white; font-size: medium; background-color: #456cbe;
+}
+
+$colors: (
+   blue:    #387ef5,
+   secondary:  #32db64,
+   danger:     #f53d3d,
+   light:      #f4f4f4,  
+   dark:          #222 
+);
+
+// a태그 밑줄 제거
+// a:link { color: red; text-decoration: none;}
+// a:visited { color: black; text-decoration: none;}
+// a:hover { color: blue; text-decoration: underline;}

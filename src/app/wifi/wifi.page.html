@@ -1,50 +1,41 @@
-<!-- <ion-header>
-  <ion-toolbar color="primary">
-    <center>
-    <ion-title style="color:white; font-size: large;">에이스원 공기청정기</ion-title>
-  </center>
-  </ion-toolbar>
-</ion-header> -->
 
-<ion-content class="background"><br><br><br><br>
+<ion-content class="background"><br><br>
   <center>
     <div style="display: flex; text-align: center;  justify-content: center;">
-      <img src="assets/img/aceone.png" style="height: 50px; width: 50px; margin-right: 10px;"><b style="font-size: 40px; color: white; ">연결 기기 목록</b>
-      </div><br><br>
-  <!-- 연결된 공기청정기 목록 -->
-<!-- 기기1 -->
-  <ion-grid style="background-color:	white; width: 90%; border-radius: 10px 10px 10px 10px; border: 2px solid;">
+      <img src="assets/img/aceone.png" style="height: 100px; width: 88px; margin-right: 10px;">
+      </div><br>
+      <b style="font-size: 28px; color: white;">연결 기기 목록</b><br><br>
+<!-- 사용자마다 연결된 기기 목록 리스트 -->
+<div *ngFor="let userDevice of userDeviceAll | keyvalue">
+  <ion-grid id="devices" style="background-color:	white; width: 90%; border-radius: 10px 10px 10px 10px; border: 2px solid;">
     <ion-row>
+      <!-- 왼쪽 컬럼 -->
       <ion-col>
-        <ion-button expand="block" fill="solid" color="none" class="nomember-btn" (click)="home()" id="air" style="background-image:url('assets/img/air.png'); background-size:cover" ></ion-button>
+        <ion-button expand="block" fill="solid" color="none" class="nomember-btn" (click)="home(userDevice.value.deviceid)" id="air" style="background-image:url('assets/img/air.png'); background-size:cover" ></ion-button><br>
+        <img src="{{userDevice.value.isConnected==true?'../../assets/img/on.png':'../../assets/img/off.png'}}" style="height: 17px; width: 17px; margin-right: 3px;"><b>{{userDevice.value.isConnected==true?'Online':'Offline'}}</b>
       </ion-col>
+      <!-- 오른쪽 컬럼 -->
       <ion-col>
-        <p style="color: black;"><b>D212FMR</b></p>
-        <ion-button expand="block" fill="solid"  class="buttoncolor" style="margin-top: 10px;">기기삭제</ion-button>
+        <!-- <p style="color: black;"><b>{{userDevice.value.sensors.isConnected}}</b></p> -->
+        <button (click)="presentAlert(userDevice.value.deviceid)" block style="background-color: white; float: right;"><img src="../../assets/img/setting.png" style="width: 15px; height: 15px; background-color: white;"></button><br>
+        <p style="color: black;"><b>별칭: {{userDevice.value.deviceName}}</b></p> 
+        <p style="color: black;"><b>{{userDevice.value.deviceid}}</b></p>
+        <ion-button expand="block" fill="solid"  class="buttoncolor" style="margin-top: 0px;" (click)="deleteDevice(userDevice.value.deviceid)">기기삭제</ion-button>
       </ion-col>
     </ion-row>
   </ion-grid><br>
-  <!-- 기기2 -->
-  <ion-grid style="background-color: white; width: 90%; border-radius: 10px 10px 10px 10px; border: 2px solid;">
-    <ion-row>
-      <ion-col>
-        <ion-button expand="block" fill="solid" color="none" class="nomember-btn" (click)="home()" id="air" style="background-image:url('assets/img/air.png'); background-size:cover" ></ion-button>
-      </ion-col>
-      <ion-col>
-        <p style="color: black;"><b>A531QLB</b></p>
-        <ion-button expand="block" fill="solid"   class="buttoncolor" style="margin-top: 10px;">기기삭제</ion-button>
-      </ion-col>
-    </ion-row>
-  </ion-grid><br>
-  <!-- <ion-button expand="block" fill="solid" color="primary" class="nomember-btn" (click)="home()" color="dark">공기청정기1</ion-button> -->
-  <!-- <ion-button expand="block" fill="solid" color="primary" class="nomember-btn" (click)="login()" color="dark" style="width: 80%;">돌아가기</ion-button> -->
+</div>
   </center>
   <div>
     <center>
+    <!-- <ion-button expand="block" fill="solid" class="buttoncolor" (click)="test()" style="width: 80%;">test</ion-button> -->
     <ion-button expand="block" fill="solid" class="buttoncolor" (click)="getWifiList()" style="width: 80%;">Wifi 검색</ion-button>
     </center>
     <ul id="wifi">
       <li id="wifiId_{{wifiId}}"  *ngFor="let wifiId of wifiList"><ion-button (click)="selectWifi(wifiId)" color="dark"> {{wifiId}}</ion-button></li>
     </ul>
   </div>
+  <center>
+    <p style="color: white;"><b>공기청정기 wifi로 변경한 후 검색을 눌러주세요.</b></p>
+  </center>
 </ion-content>

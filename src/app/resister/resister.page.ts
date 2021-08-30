@@ -23,32 +23,32 @@ interface User {
   styleUrls: ['./resister.page.scss'],
 })
 export class ResisterPage implements OnInit {
+  password2;
 
   user: User = {
     email: '',
     password: '',
   };
 
-  constructor(
+  constructor(  
     private router: Router,
-    public afAuth: AngularFireAuth
+    public afAuth: AngularFireAuth  
   ) { }
 
-  //회원가입
+  //회원가입 비밀번호 일치 유효성 검사
 async createAccount(){
-  try{
-  const user = await this.afAuth.createUserWithEmailAndPassword(
-    this.user.email,
-    this.user.password,
-  );
-  console.log(user);
-  alert("회원가입이 완료되었습니다.");
-  this.logout();
-  this.router.navigate(['/login']);
-}catch(err){
-  alert("이메일형식이나 비밀번호6자리 이상 입력해주세요.");
-}
+  if(this.user.password == this.password2){
+    const user = await this.afAuth.createUserWithEmailAndPassword(
+      this.user.email,
+      this.user.password,
+    );
+      console.log(user);
+      alert("회원가입이 완료되었습니다.");
+      this.logout();
+      this.router.navigate(['/login']);
   }
+  else alert("이메일형식&비밀번호6자리 이상&비밀번호일치 여부를 확인해주세요.");
+}
 
 //돌아가기
   backlogin() {

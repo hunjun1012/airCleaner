@@ -51,6 +51,7 @@ user: User = {
     private router: Router,
     public afAuth: AngularFireAuth
   ) { }
+  
 //아이디 생성
 // async createAccount(){
 // const user = await this.afAuth.createUserWithEmailAndPassword(
@@ -60,6 +61,28 @@ user: User = {
 // console.log(user);
 // }
 
+// 카카오로그인
+// logins() {
+//   if (typeof KakaoTalk !== 'undefined') {
+
+//     KakaoTalk.login(
+//       function (result) {
+//         console.log('Successful login!');
+//         console.log(result);
+//       },
+//       function (message) {
+//         console.log('Error logging in');
+//         console.log(message);
+//       }
+//     );
+//   }
+// }
+
+kakaoLogin(){
+  window.location.href = 'https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=d9193551170ff0ca2ecd6cc16e06de8f&redirect_uri=http://localhost:8100/login';
+}
+
+
 //로그인 후 공기청정기 연결화면 이동
   async login() {
     try{
@@ -68,6 +91,7 @@ user: User = {
       this.user.password
   );
     console.log(user);
+    console.log(this.user.email);
     this.router.navigate(['/wifi']);
   }
   //로그인 실패시
@@ -83,6 +107,7 @@ async logout(){
 //와이파이 선택 목록으로 돌아가기
 home() {
   this.router.navigate(['/wifi'])
+  console.log(this.user.email);
 }
 //회원가입으로
 signup() {
@@ -110,24 +135,24 @@ auth.sendPasswordResetEmail(this.emailAddress).then(function() {
 
   ngOnInit() {
     //firebase sensor테이블 get
-    firebase.database().ref('/devices/device01/sensors').on('value', (val) => {
-      console.log(val.val());
-      this.dust = val.val().dust;
-      this.gas = val.val().gas;
-      this.voc = val.val().voc;
-    });
+    // firebase.database().ref('/devices/device01/sensors').on('value', (val) => {
+    //   console.log(val.val());
+    //   this.dust = val.val().dust;
+    //   this.gas = val.val().gas;
+    //   this.voc = val.val().voc;
+    // });
 
     //firebase controls테이블 get
-    firebase.database().ref('/devices/device01/controls').on('value', (val) => {
-      console.log(val.val());
-      this.filter = val.val().filter;
-      this.light = val.val().light;
-      this.lock = val.val().lock;
-      this.mode = val.val().mode;
-      this.power = val.val().power;
-      this.sound = val.val().sound;
-      this.timer = val.val().timer;
-      this.wind = val.val().wind;
-    });
+    // firebase.database().ref('/devices/device01/controls').on('value', (val) => {
+    //   console.log(val.val());
+    //   this.filter = val.val().filter;
+    //   this.light = val.val().light;
+    //   this.lock = val.val().lock;
+    //   this.mode = val.val().mode;
+    //   this.power = val.val().power;
+    //   this.sound = val.val().sound;
+    //   this.timer = val.val().timer;
+    //   this.wind = val.val().wind;
+    // });
   }
 }

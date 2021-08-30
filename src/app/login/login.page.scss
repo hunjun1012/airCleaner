@@ -124,5 +124,10 @@ ion-item {
 }
 
 #loginbutton{
-  --ion-color-primary: #233f78;
+  --ion-color-primary: #FFFFFF;
+  border-radius: 25px 25px 25px 25px;
+}
+
+#kakaoLogin{
+  background-image: url('./kakao.png');
 }
